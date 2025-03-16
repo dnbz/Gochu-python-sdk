@@ -1,0 +1,15 @@
+[project]
+name = "Gochu-python-sdk"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "None", email = "None"},
+]
+dependencies = ["requests>=2.32.3", "python-dotenv>=1.0.1", "typing-extensions>=4.12.2"]
+requires-python = "==3.13.*"
+readme = "README.md"
+license = {text = "None"}
+
+
+[tool.pdm]
+distribution = false

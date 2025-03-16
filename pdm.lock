@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:6b3dbfed15cf9b048376f09415094e3bec5d39ea1a454f9f77f022c4a92cff86"
+content_hash = "sha256:e9e212b40d11b8fc1c6758cac197472eb75022c0c2d80d2bdf60c2cd66752e01"
 
 [[metadata.targets]]
 requires_python = "==3.13.*"
@@ -43,6 +43,21 @@ files = [
     {file = "charset_normalizer-3.4.1-cp313-cp313-win_amd64.whl", hash = "sha256:b1ac5992a838106edb89654e0aebfc24f5848ae2547d22c2c3f66454daa11971"},
     {file = "charset_normalizer-3.4.1-py3-none-any.whl", hash = "sha256:d98b1668f06378c6dbefec3b92299716b931cd4e6061f3c875a71ced1780ab85"},
     {file = "charset_normalizer-3.4.1.tar.gz", hash = "sha256:44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"},
+]
+
+[[package]]
+name = "gochu-sdk"
+version = "0.1.0"
+requires_python = "==3.13.*"
+git = "https://github.com/dnbz/Gochu-python-sdk"
+ref = "main"
+revision = "ea7cd28570dce60b93d5177ee0d76b7a23761798"
+summary = "Default template for PDM package"
+groups = ["default"]
+dependencies = [
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "typing-extensions>=4.12.2",
 ]
 
 [[package]]

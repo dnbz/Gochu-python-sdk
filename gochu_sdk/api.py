@@ -6,8 +6,7 @@ import httpx
 class GochuFun:
     API_BASE_URL = "https://gochu-contract-caller-production.up.railway.app"
 
-    def __init__(self, secret_key: str, access_key: str):
-        self.secret_key = secret_key
+    def __init__(self, access_key: str):
         self.access_key = access_key
         self.base_url = "https://gochu-contract-caller-production.up.railway.app"
 

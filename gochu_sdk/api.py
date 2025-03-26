@@ -2,8 +2,6 @@ import logging
 
 import httpx
 
-from gochu_sdk.types import SwapTransaction, SimSwap, TokenDetails
-
 
 class GochuFun:
     API_BASE_URL = "https://gochu-contract-caller-production.up.railway.app"
@@ -32,16 +30,43 @@ class GochuFun:
             logging.error(f"Error making request: {error}")
             return None
 
-    def get_token(self, transaction: TokenDetails) -> dict | None:
+    def get_token(self, token_mint: str, encrypted_data: str) -> dict | None:
         """Get token details from the API"""
+        transaction = {"token_mint": token_mint, "encryptedData": encrypted_data}
         return self._make_request("/api/v1/token/get", transaction)
 
-    def send_swap_transaction(self, transaction: SwapTransaction) -> dict | None:
+    def send_swap_transaction(
+            self,
+            amount: float,
+            is_buy: bool,
+            min_output: float,
+            token_mint: str,
+            private_key: str
+    ) -> dict | None:
         """Send swap transaction to the API"""
+        transaction = {
+            "amount": amount,
+            "is_buy": is_buy,
+            "min_output": min_output,
+            "token_mint": token_mint,
+            "privateKey": private_key
+        }
         return self._make_request("/api/v1/tx/createswaptransaction", transaction)
 
-    def simulate_swap_transaction(self, transaction: SimSwap) -> dict | None:
+    def simulate_swap_transaction(
+            self,
+            amount: float,
+            is_buy: bool,
+            token_mint: str,
+            encrypted_data: str
+    ) -> dict | None:
         """Get a quote for a swap transaction"""
+        transaction = {
+            "amount": amount,
+            "is_buy": is_buy,
+            "token_mint": token_mint,
+            "encryptedData": encrypted_data
+        }
         return self._make_request("/api/v1/tx/simulatetransaction", transaction)
 
     # noinspection PyMethodMayBeStatic
